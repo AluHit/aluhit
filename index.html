@@ -2810,7 +2810,7 @@ function rPovzetek(){
     <div class="stag">Konfigurator ograje ALU-HIT by Elšnik</div>
     <div class="sh">Povzetek</div>
     <div class="ssub">Preverite podatke in oddajte povpraševanje</div>
-    <div style="margin-top:6px;font-size:13px;font-weight:700;color:#fff;letter-spacing:.05em">📄 ${_interni ? "Št. ponudbe" : "Št. povpraševanja"}: ${_interni ? POV_ID.replace("AH-POV-","AH-PON-").replace("AH-PON-PON-","AH-PON-") : POV_ID}</div>
+    <div style="margin-top:6px;font-size:13px;font-weight:700;color:#fff;letter-spacing:.05em">📄 ${_interni ? "Št. ponudbe" : "Št. povpraševanja"}: ${_interni ? POV_ID.replace("AH-POV-","AH-") : POV_ID}</div>
   </div>
 
   <div class="sec" style="margin-bottom:8px"><div class="sec-t">Konfiguracija</div>
@@ -3463,7 +3463,7 @@ function sendPonudbaEmail(){
   const pdfHtml = doPDFhtml();
   _interni = origInterni;
 
-  const ponId = POV_ID.replace("AH-POV-","AH-PON-").replace("AH-PON-PON-","AH-PON-");
+  const ponId = POV_ID.replace("AH-POV-","AH-");
   const pdfFileName = "Ponudba_"+ponId+".pdf";
 
   // Izvleči CSS iz pdfHtml in ga skopiraš v <head> (začasno)
@@ -3598,9 +3598,9 @@ function doPDFhtml(showPricesOverride){
   if(showPricesOverride !== undefined) {
     // Začasno ne spremenimo _interni - samo pošljemo parameter naprej
   }
-  // ✅ V internem pogledu pokaži AH-PON- namesto AH-POV-
+  // ✅ V internem pogledu pokaži AH- namesto AH-POV-
   const PDF_ID = _interni
-    ? POV_ID.replace("AH-POV-","AH-PON-").replace("AH-PON-PON-","AH-PON-")
+    ? POV_ID.replace("AH-POV-","AH-")
     : POV_ID;
   const calc=D.tip==="balkon"?calcPriceB():calcPriceD();
   const k=D.kontakt||{};
@@ -3821,8 +3821,8 @@ function shraniInterno(){
   const mereText=buildMereText();
   const barvaL=cname(D.barva);
 
-  // Generiraj AH-PON- prefix za interne ponudbe
-  const ponId = POV_ID.replace("AH-POV-","AH-PON-").replace("AH-","AH-PON-").replace("AH-PON-PON-","AH-PON-");
+  // Generiraj AH- prefix za interne ponudbe
+  const ponId = POV_ID.replace("AH-POV-","AH-");
 
   const payload={
     pov_id:           ponId,
