@@ -3682,7 +3682,6 @@ table{width:100%;border-collapse:collapse}tr{border-bottom:1px solid #E3F2FD}tr:
     <div class="datum">Datum: ${datum}</div>
   </div>
 </div>
-<div class="hero" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:10px 14px"><div><div style="font-size:15px;font-weight:700;color:#000;margin-bottom:4px">Konfiguracija ograje &ndash; ${D.model||"&ndash;"}</div><div style="font-size:12px;color:#000;margin-top:2px">${D.tip==="zunaj"?"Dvoriščna ograja":"Balkonska ograja"}</div><div style="font-size:12px;color:#000;margin-top:1px">Barva: ${barvaL}</div><div style="font-size:12px;color:#000;margin-top:1px">Montaža: ${montazaL}</div></div>${MODEL_IMGS[D.model]?`<img src="${MODEL_IMGS[D.model]}" style="height:80px;width:auto;object-fit:contain"/>`:""}</div>
 ${k.priimek||k.ime||k.tel?`<div class="sec"><h2>Kontaktni podatki</h2><table>
   ${row(k.ddv_zav?"Naziv podjetja":"Priimek in ime",[k.priimek,k.ime].filter(Boolean).join(" "))}
   ${k.ddv_zav&&k.ddv_st?row("ID za DDV",k.ddv_st):""}
@@ -3691,6 +3690,7 @@ ${k.priimek||k.ime||k.tel?`<div class="sec"><h2>Kontaktni podatki</h2><table>
   ${row("Telefon",k.tel)}${row("E-pošta",k.email)}
   ${D.datoteka_ime?row("Naložena datoteka",D.datoteka_ime):""}
 </table></div>`:""}
+<div class="hero" style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:10px 14px"><div><div style="font-size:15px;font-weight:700;color:#000;margin-bottom:4px">Konfiguracija ograje &ndash; ${D.model||"&ndash;"}</div><div style="font-size:12px;color:#000;margin-top:2px">${D.tip==="zunaj"?"Dvoriščna ograja":"Balkonska ograja"}</div><div style="font-size:12px;color:#000;margin-top:1px">Barva: ${barvaL}</div><div style="font-size:12px;color:#000;margin-top:1px">Montaža: ${montazaL}</div></div>${MODEL_IMGS[D.model]?`<img src="${MODEL_IMGS[D.model]}" style="height:80px;width:auto;object-fit:contain"/>`:""}</div>
 
 ${(()=>{
     const spec=buildSpec();
@@ -3728,6 +3728,11 @@ ${showP?`<div style="background:#F5F9FF;padding:4px 10px;display:flex;justify-co
   <span style="font-size:11px;font-family:'Courier New',monospace;color:#1a1a2e">${fmt(ddvV)}</span>
 </div>
 <div class="pt"><span class="pt-l">SKUPAJ Z DDV</span><span class="pt-v">${fmt(tot)}</span></div>
+<div style="margin-top:10px;padding:8px 10px;border:1px solid #90CAF9;border-radius:6px;background:#F5F9FF;font-size:12px;line-height:1.6;color:#1a1a2e;page-break-inside:avoid">
+  Ponudba velja kot predračun. Potrditev ponudbe velja ob vplačilu 50% vrednosti na:<br/>
+  <strong>TRR: NLB d.d. &nbsp;|&nbsp; IBAN: SI56 0287 8030 0221 225 &nbsp;|&nbsp; BIC/SWIFT: LJBASI2X</strong><br/>
+  <strong>SKLIC: 00&nbsp;&nbsp;${PDF_ID.replace(/^AH-/,"")}</strong>
+</div>
 `:""}
 </div>`
   })()}
