@@ -3644,15 +3644,16 @@ body{font-family:system-ui,sans-serif;color:#1a1a2e;padding:32px;max-width:760px
 .hdr-right .pov-num{font-size:13px;font-weight:700;color:#1565C0;letter-spacing:.05em;white-space:nowrap}
 .hdr-right .datum{font-size:12px;color:#1565C0;white-space:nowrap}
 /* HERO */
-.hero{background:#E3F2FD;color:#1a1a2e;border-radius:8px;padding:12px 16px;margin-bottom:14px;border:2px solid #90CAF9}
+.hero{background:#FAFCFF;color:#1a1a2e;border-radius:8px;padding:12px 16px;margin-bottom:14px;border:2px solid #90CAF9}
 .hero h1{font-size:16px;font-weight:700;margin-bottom:2px}
 .hero p{font-size:11px;opacity:.85}
 /* SECTIONS */
-.sec{margin-bottom:12px;background:#F5F9FF;border-radius:8px;padding:10px 14px;border:1px solid #90CAF9}
+.sec{margin-bottom:12px;background:#FAFCFF;border-radius:8px;padding:10px 14px;border:1px solid #90CAF9}
 h2{font-size:11px;font-weight:700;color:#1565C0;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;padding-bottom:3px;border-bottom:1px solid #90CAF9}
 table{width:100%;border-collapse:collapse}tr{border-bottom:1px solid #E3F2FD}tr:last-child{border-bottom:none}
 /* PRICE */
-.ps{background:#EEF5FD;border-radius:8px;padding:12px 16px;margin-bottom:12px;border:1px solid #90CAF9}
+.sec.k{background:#E3F2FD}
+.ps{background:#FAFCFF;border-radius:8px;padding:12px 16px;margin-bottom:12px;border:1px solid #90CAF9}
 .ps h2{color:#1565C0;border-color:#90CAF9}
 .ps tr{border-color:#BBDEFB}
 .ps td:first-child{color:#546e7a}
@@ -3667,7 +3668,7 @@ table{width:100%;border-collapse:collapse}tr{border-bottom:1px solid #E3F2FD}tr:
 .footer-r2{margin-bottom:3px}
 .footer-r3{}
 /* CLOSING */
-.closing{background:#F5F9FF;border:1px solid #90CAF9;border-radius:8px;padding:12px 14px;margin-top:12px;font-size:12px;color:#1565C0;line-height:1.6}
+.closing{background:#FAFCFF;border:1px solid #90CAF9;border-radius:8px;padding:12px 14px;margin-top:12px;font-size:12px;color:#1565C0;line-height:1.6}
 @media print{body{padding:16px}}
 </style></head><body>
 <div class="hdr">
@@ -3682,7 +3683,7 @@ table{width:100%;border-collapse:collapse}tr{border-bottom:1px solid #E3F2FD}tr:
     <div class="datum">Datum: ${datum}</div>
   </div>
 </div>
-${k.priimek||k.ime||k.tel?`<div class="sec"><h2>Kontaktni podatki</h2><table>
+${k.priimek||k.ime||k.tel?`<div class="sec k"><h2>Kontaktni podatki</h2><table>
   ${row(k.ddv_zav?"Naziv podjetja":"Priimek in ime",[k.priimek,k.ime].filter(Boolean).join(" "))}
   ${k.ddv_zav&&k.ddv_st?row("ID za DDV",k.ddv_st):""}
   ${row("Naslov",k.naslov)}
@@ -3719,16 +3720,16 @@ ${(()=>{
   <td style="padding:4px 4px;font-size:11px;font-weight:700;font-family:'Courier New',monospace;text-align:right;color:#1a1a2e">${it.skupaj!==0?fmt(it.skupaj):""}</td>`:""}
 </tr>`).join("")}</tbody>
 </table>
-${showP?`<div style="background:#F5F9FF;border-top:2px solid #1565C0;padding:6px 10px;display:flex;justify-content:space-between">
+${showP?`<div style="background:#FAFCFF;border-top:2px solid #1565C0;padding:6px 10px;display:flex;justify-content:space-between">
   <span style="font-size:12px;color:#1a1a2e">Skupaj brez DDV</span>
   <span style="font-size:13px;font-weight:700;font-family:'Courier New',monospace;color:#1a1a2e">${fmt(sub)}</span>
 </div>`:""}
-${showP?`<div style="background:#F5F9FF;padding:4px 10px;display:flex;justify-content:space-between">
+${showP?`<div style="background:#FAFCFF;padding:4px 10px;display:flex;justify-content:space-between">
   <span style="font-size:11px;color:#1a1a2e">DDV ${selectedDdv===0?"0":selectedDdv===0.095?"9,5":Math.round(selectedDdv*100)}%</span>
   <span style="font-size:11px;font-family:'Courier New',monospace;color:#1a1a2e">${fmt(ddvV)}</span>
 </div>
 <div class="pt"><span class="pt-l">SKUPAJ Z DDV</span><span class="pt-v">${fmt(tot)}</span></div>
-<div style="margin-top:10px;padding:8px 10px;border:1px solid #90CAF9;border-radius:6px;background:#F5F9FF;font-size:12px;line-height:1.6;color:#1a1a2e;page-break-inside:avoid">
+<div style="margin-top:10px;padding:8px 10px;border:1px solid #90CAF9;border-radius:6px;background:#FAFCFF;font-size:12px;line-height:1.6;color:#1a1a2e;page-break-inside:avoid">
   Ponudba velja kot predračun. Potrditev ponudbe velja ob vplačilu 50% vrednosti na:<br/>
   <strong>TRR: NLB d.d. &nbsp;|&nbsp; IBAN: SI56 0287 8030 0221 225 &nbsp;|&nbsp; BIC/SWIFT: LJBASI2X</strong><br/>
   <strong>SKLIC: 00&nbsp;&nbsp;${PDF_ID.replace(/^AH-/,"")}</strong>
