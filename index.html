@@ -3743,7 +3743,7 @@ ${D.opomba?`<div class="sec"><h2>Opomba stranke</h2><p style="font-size:12px;col
 <div class="footer">
   <div class="footer-r1">ELŠNIK, d.o.o. &nbsp;|&nbsp; Zlatoličje 127, SI-2205 Starše, Slovenija</div>
   <div class="footer-r2">Matična številka: 8576530000 &nbsp;|&nbsp; ID št. za DDV: SI 67676057</div>
-  <div class="footer-r3">Račun odprt pri banki: BKS BANK AG &nbsp;|&nbsp; IBAN: SI56 3500 1000 1914 110 &nbsp;|&nbsp; BIC/SWIFT: BFKKSI22XXX</div>
+  <div class="footer-r3">Račun odprt pri banki: NLB d.d. &nbsp;|&nbsp; IBAN: SI56 0287 8030 0221 225 &nbsp;|&nbsp; BIC/SWIFT: LJBASI2X</div>
 </div>
 <script>window.onload=()=>window.print()<\/script>
 </body></html>`;
@@ -3855,6 +3855,7 @@ function shraniInterno(){
     operater:         _operater||"",
     tip_shranjevanja: "interno",
     znamka:           "ALU HIT",
+    podjetje:         "ELŠNIK, d.o.o.",
     cenovne:          buildCenovnePostavke(),
     data_json:        JSON.stringify({...D, datoteka_base64:"", datoteka_tip:""}),
     spec_json:        JSON.stringify(buildSpecJson()),
